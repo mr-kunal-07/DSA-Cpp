@@ -1,26 +1,22 @@
-// Kadane's Algorithm | Maximum Subarray Sum
+// Brute Force Approach | Maximum Subarray Sum
 
-#include <iostream>
-#include <vector>
+#include <bits/stdc++.h>
 using namespace std;
 
-int main() {
-
+int main()
+{
     int n = 5;
-    int arr[5] = {1, 2, 3, 4, 5};
+    int arr[5] = {1, -2, 3, 4, -5};
+    int maxSum = 0;
+    int currSum = 0;
 
     for (int st = 0; st < n; st++)
     {
-        for (int end = 0; end < n; end++)
-        {
-            for (int  i = st; i <= end; i++)
-            {
-               cout<<arr[i]<<" ";
-            }
-            
-        }
-        
-    }
-    
+       currSum = currSum + arr[st];
+       maxSum = max(currSum, maxSum);
 
+       if(currSum < 0) currSum = 0;
+       
+    }
+    cout << maxSum;
 }
